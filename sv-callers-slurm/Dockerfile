@@ -5,7 +5,7 @@ LABEL email="a.kuzniar@esciencecenter.nl"
 LABEL version="0.1.0"
 
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
-ENV CONDA_HOME /home/xenon/miniconda3
+ENV CONDA_HOME /home/xenon/.local
 ENV PATH ${CONDA_HOME}/bin:${PATH}
 
 RUN apt-get update --fix-missing && \
@@ -14,10 +14,11 @@ RUN apt-get update --fix-missing && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /home/xenon
+
 RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh && \
     bash ./miniconda.sh -b -p ${CONDA_HOME} && \
     rm miniconda.sh && \
-    ln -s /home/xenon/miniconda3/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
+    . ~/.profile && \
     conda clean -tipsy && \
     conda update -y conda && \
     conda create -y -n wf -c nlesc -c bioconda xenon-cli snakemake && \
