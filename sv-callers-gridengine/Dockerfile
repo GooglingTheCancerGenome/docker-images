@@ -14,12 +14,13 @@ RUN apt-get update --fix-missing && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR /home/xenon
+
 RUN wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh && \
     bash ./miniconda.sh -b -p ${CONDA_HOME} && \
     rm miniconda.sh && \
+    ln -s /home/xenon/miniconda3/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
     conda clean -tipsy && \
-    conda update -y conda
-RUN conda create -y -n wf -c nlesc -c bioconda xenon-cli snakemake
-RUN git clone https://github.com/GooglingTheCancerGenome/sv-callers.git && \
-    chown -R xenon.xenon sv-callers && \
-    ln -s /home/xenon/miniconda3/etc/profile.d/conda.sh /etc/profile.d/conda.sh
+    conda update -y conda && \
+    conda create -y -n wf -c nlesc -c bioconda xenon-cli snakemake && \
+    git clone https://github.com/GooglingTheCancerGenome/sv-callers.git && \
+    chown -R xenon.xenon sv-callers
