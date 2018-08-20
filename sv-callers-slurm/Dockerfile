@@ -14,7 +14,6 @@ RUN apt-get update --fix-missing && \
 
 WORKDIR $HOME
 RUN git clone https://github.com/GooglingTheCancerGenome/sv-callers.git && \
-    chown -R xenon.xenon sv-callers && \
     curl https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh \
       -o miniconda.sh && \
     bash miniconda.sh -b -p $HOME/miniconda && \
@@ -22,4 +21,5 @@ RUN git clone https://github.com/GooglingTheCancerGenome/sv-callers.git && \
     conda update -y conda && \
     conda create -y -n wf -c bioconda -c nlesc snakemake xenon-cli && \
     echo "export PATH=$PATH:\$PATH" >> .profile && \
-    echo "source activate wf" >> .profile
+    echo "source activate wf" >> .profile && \
+    chown -R xenon.xenon $HOME
