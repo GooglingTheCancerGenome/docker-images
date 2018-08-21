@@ -7,6 +7,7 @@ LABEL version="0.1.0"
 ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV HOME=/home/xenon
 ENV PATH=$HOME/miniconda/bin:$PATH
+ENV MY_ENV=wf
 RUN apt-get update --fix-missing && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y git bc bzip2 && \
     apt-get clean && \
@@ -19,7 +20,7 @@ RUN git clone https://github.com/GooglingTheCancerGenome/sv-callers.git && \
     bash miniconda.sh -b -p $HOME/miniconda && \
     rm -f miniconda.sh && \
     conda update -y conda && \
-    conda create -y -n wf -c bioconda -c nlesc snakemake xenon-cli && \
+    conda create -y -n $MY_ENV -c bioconda -c nlesc snakemake xenon-cli && \
     echo "export PATH=$PATH:\$PATH" >> .profile && \
-    echo "source activate wf" >> .profile && \
+    echo "source activate $MY_ENV" >> .profile && \
     chown -R xenon.xenon $HOME
