@@ -11,7 +11,10 @@ ENV MY_ENV=wf
 RUN apt-get update --fix-missing && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y git bc bzip2 && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    rm -rf /var/lib/apt/lists/* && \
+    curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash && \
+    sudo apt-get install git-lfs && \
+    git install lfs
 
 WORKDIR $HOME
 RUN curl https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh \
