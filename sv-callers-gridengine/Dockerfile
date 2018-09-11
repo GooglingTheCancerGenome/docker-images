@@ -14,8 +14,7 @@ RUN apt-get update --fix-missing && \
     rm -rf /var/lib/apt/lists/*
 
 WORKDIR $HOME
-RUN git clone https://github.com/GooglingTheCancerGenome/sv-callers.git && \
-    curl https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+RUN curl https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh \
       -o miniconda.sh && \
     bash miniconda.sh -b -p $HOME/miniconda && \
     rm -f miniconda.sh && \
