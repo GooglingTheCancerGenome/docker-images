@@ -19,7 +19,8 @@ RUN curl https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh \
     bash miniconda.sh -b -p $HOME/miniconda && \
     rm -f miniconda.sh && \
     conda update -y conda && \
-    conda create -y -n $MY_ENV -c bioconda -c nlesc snakemake xenon-cli && \
+    conda create -y -n $MY_ENV -c bioconda -c nlesc snakemake \
+      xenon-cli==3.0.0a.dev3 && \
     echo "export PATH=$PATH:\$PATH" >> .profile && \
     echo "source activate $MY_ENV" >> .profile && \
     chown -R xenon.xenon $HOME
