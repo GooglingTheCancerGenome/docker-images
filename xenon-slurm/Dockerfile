@@ -15,4 +15,4 @@ WORKDIR $HOME
 RUN curl https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -o miniconda.sh && \
     bash miniconda.sh -bfp "${HOME}/miniconda" && \
     conda update -y conda && \
-    chown -R xenon.xenon $HOME
+    chown -R xenon:xenon $HOME
