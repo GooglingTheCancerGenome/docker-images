@@ -1,5 +1,5 @@
-FROM nlesc/xenon-slurm
-LABEL description="xenon-slurm"
+FROM xenonmiddleware/slurm:19
+LABEL description="xenon-slurm-19"
 LABEL maintainer="Arnold Kuzniar"
 LABEL email="a.kuzniar@esciencecenter.nl"
 LABEL version="0.1.0"

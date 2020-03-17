@@ -1,5 +1,5 @@
-FROM xenonmiddleware/gridengine
-LABEL description="xenon-gridengine"
+FROM xenonmiddleware/slurm:17
+LABEL description="xenon-slurm-17"
 LABEL maintainer="Arnold Kuzniar"
 LABEL email="a.kuzniar@esciencecenter.nl"
 LABEL version="0.1.0"
