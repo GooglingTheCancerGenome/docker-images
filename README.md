@@ -8,6 +8,6 @@ Docker images used for CI testing of:
 
 | Image | Status | Notes
 | ----- | ------ | -----
-| `xenon-gridengine` | ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/gtcg/xenon-gridengine) |
-| `xenon-slurm-17` | ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/gtcg/xenon-slurm) |
-| `xenon-slurm-19` | ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/gtcg/xenon-slurm) |
+| [`gtcg/xenon-gridengine`](https://hub.docker.com/repository/docker/gtcg/xenon-gridengine) | ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/gtcg/xenon-gridengine) |
+| [`gtcg/xenon-slurm:17`](https://hub.docker.com/repository/docker/gtcg/xenon-slurm) | ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/gtcg/xenon-slurm) |
+| [`gtcg/xenon-slurm:19`](https://hub.docker.com/repository/docker/gtcg/xenon-slurm) | ![Docker Cloud Build Status](https://img.shields.io/docker/cloud/build/gtcg/xenon-slurm) |
