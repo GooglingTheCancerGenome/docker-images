@@ -8,7 +8,7 @@ ENV LANG=C.UTF-8 LC_ALL=C.UTF-8
 ENV HOME=/home/xenon
 ENV PATH="${HOME}/miniconda/bin:${PATH}"
 RUN apt-get -qq update --fix-missing && \
-    DEBIAN_FRONTEND=noninteractive apt-get -qq install -y git bc bzip2 && \
+    DEBIAN_FRONTEND=noninteractive apt-get -qq install -y git bzip2 && \
     apt-get -qq clean && \
     rm -rf /var/lib/apt/lists/* /var/log/dpkg.log
 WORKDIR $HOME
