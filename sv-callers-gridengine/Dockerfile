@@ -1,10 +1,10 @@
 FROM gtcg/xenon-gridengine:latest
-LABEL description="xenon-gridengine"
+LABEL description="sv-callers-gridengine"
 LABEL maintainer="Arnold Kuzniar"
 LABEL email="a.kuzniar@esciencecenter.nl"
 LABEL version="0.1.0"
 
-ENV GIT_COMMIT="7f7439"
+ENV GIT_COMMIT="8415db1"
 RUN git clone https://github.com/GooglingTheCancerGenome/sv-callers.git && \
     cd ./sv-callers && \
     git checkout ${GIT_COMMIT} && \
