@@ -4,7 +4,7 @@ LABEL maintainer="Arnold Kuzniar"
 LABEL email="a.kuzniar@esciencecenter.nl"
 LABEL version="0.1.0"
 
-ENV GIT_COMMIT="c708be5"
+ENV GIT_COMMIT="eb832d8"
 RUN git clone https://github.com/GooglingTheCancerGenome/sv-callers.git && \
     cd ./sv-callers && \
     git checkout ${GIT_COMMIT} && \
