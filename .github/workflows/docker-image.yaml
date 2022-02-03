@@ -1,7 +1,6 @@
-name: Docker Image CI
+name: Docker image CI
 on:
   push:
-  pull_request:
 
 jobs:
   build:
@@ -11,12 +10,23 @@ jobs:
       matrix:
         schedulers: ["gridengine", "slurm"]
     env:
+      REGISTRY: ghcr.io
       NAME: sv-callers-${{ matrix.schedulers }}
       TAG: latest
+      IMG_NAME: ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.NAME }}:${{ env.TAG }}
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Build the Docker image
-      run: |
-        docker build . -f $NAME/Dockerfile -t $NAME:$TAG
-        docker images 
+      - name: Check out repo
+        uses: actions/checkout@v2
+      - name: Log into registry
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build Docker image
+        run: |
+          docker build . -f $NAME/Dockerfile -t $IMG_NAME
+          docker images
+      - name: Push Docker image to registry
+        run: docker push $IMG_NAME
