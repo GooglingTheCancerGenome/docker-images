@@ -13,7 +13,6 @@ jobs:
       REGISTRY: ghcr.io
       NAME: sv-callers-${{ matrix.schedulers }}
       TAG: latest
-      IMG_NAME: ${{ env.REGISTRY }}/${{ github.actor }}/${{ env.NAME }}:${{ env.TAG }}
 
     steps:
       - name: Check out repo
@@ -26,7 +25,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build Docker image
         run: |
-          docker build . -f $NAME/Dockerfile -t $IMG_NAME
+          docker build . -f $NAME/Dockerfile -t $REGISTRY/${{ github.actor }}/$NAME:$TAG
           docker images
       - name: Push Docker image to registry
-        run: docker push $IMG_NAME
+        run: docker push $REGISTRY/${{ github.repository_owner }}/$NAME:$TAG
