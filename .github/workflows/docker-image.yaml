@@ -28,7 +28,7 @@ jobs:
           echo "IMG_NAME=${REGISTRY}/${GITHUB_REPOSITORY_OWNER,,}/${NAME}:${TAG}" >> ${GITHUB_ENV}
       - name: Build Docker image
         run: |
-          docker build --build-arg GIT_COMMIT=eb832d8 -f $NAME/Dockerfile -t $IMG_NAME
+          docker build --build-arg GIT_COMMIT=eb832d8 -t $IMG_NAME $NAME
           docker images
       - name: Push Docker image to registry
         run: docker push $IMG_NAME
