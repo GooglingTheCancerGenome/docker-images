@@ -11,9 +11,9 @@ jobs:
         schedulers: ["gridengine", "slurm"]
     env:
       REGISTRY: ghcr.io
-      GIT_COMMIT: c45ba25
+      GIT_COMMIT: 273f592
       NAME: sv-callers-${{ matrix.schedulers }}
-      TAG: 1.1.3
+      TAG: dev
 
     steps:
       - name: Check out repo
