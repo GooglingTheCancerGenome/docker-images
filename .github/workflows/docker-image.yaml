@@ -13,7 +13,7 @@ jobs:
       REGISTRY: ghcr.io
       GIT_COMMIT: c45ba25
       NAME: sv-callers-${{ matrix.schedulers }}
-      TAG: latest
+      TAG: 1.1.3
 
     steps:
       - name: Check out repo
