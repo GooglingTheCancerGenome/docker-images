@@ -11,10 +11,9 @@ jobs:
         schedulers: ["gridengine", "slurm"]
     env:
       REGISTRY: ghcr.io
-      GIT_COMMIT: 870c48d
+      GIT_COMMIT: 809d3a4
       NAME: sv-callers-${{ matrix.schedulers }}
-      TAG: 1.2.1
-
+      TAG: 1.2.2
     steps:
       - name: Check out repo
         uses: actions/checkout@v2
