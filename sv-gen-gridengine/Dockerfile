@@ -1,5 +1,5 @@
 FROM gtcg/xenon-gridengine:latest
-LABEL description="sv-callers-gridengine"
+LABEL description="sv-gen-gridengine"
 LABEL maintainer="Arnold Kuzniar"
 LABEL email="a.kuzniar@esciencecenter.nl"
 LABEL version="0.1.0"

@@ -1,5 +1,5 @@
 FROM gtcg/xenon-slurm:19
-LABEL description="sv-callers-slurm"
+LABEL description="sv-gen-slurm"
 LABEL maintainer="Arnold Kuzniar"
 LABEL email="a.kuzniar@esciencecenter.nl"
 LABEL version="0.1.0"
