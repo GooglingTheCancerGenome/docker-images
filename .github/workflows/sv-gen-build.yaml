@@ -13,8 +13,8 @@ jobs:
       REGISTRY: ghcr.io
       GIT_COMMIT: b31c093
       TAG: dev
-      BASE_NAME: sv-gen
-      FILE_PATH: ${{ env.BASE_NAME }}/${{ env.BASE_NAME }}-${{ matrix.schedulers }}
+      NAME: sv-gen
+      FILE_PATH: ${{ env.NAME }}/${{ matrix.schedulers }}
 
     steps:
       - name: Check out repo
@@ -27,7 +27,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Set Docker image name
         run: |
-          echo "IMG_TAG=${REGISTRY}/${GITHUB_REPOSITORY_OWNER,,}/${FILE_PATH}:${TAG}" >> ${GITHUB_ENV}
+          echo "IMG_TAG=${REGISTRY}/${GITHUB_REPOSITORY_OWNER,,}/${NAME}:${TAG}" >> ${GITHUB_ENV}
       - name: Build Docker image
         run: |
           docker build --build-arg GIT_COMMIT=$GIT_COMMIT -t $IMG_TAG $FILE_PATH
