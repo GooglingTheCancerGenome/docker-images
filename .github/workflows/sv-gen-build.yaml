@@ -14,7 +14,7 @@ jobs:
       GIT_COMMIT: b31c093
       TAG: dev
       NAME: sv-gen
-      FILE_PATH: ${{ env.NAME }}/${{ matrix.schedulers }}
+      FILE_PATH: sv-gen/${{ matrix.schedulers }}
 
     steps:
       - name: Check out repo
