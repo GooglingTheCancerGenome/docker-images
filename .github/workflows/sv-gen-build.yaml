@@ -1,6 +1,6 @@
+---
 name: sv-gen Docker build
-on:
-  push:
+on: push
 
 jobs:
   build:
