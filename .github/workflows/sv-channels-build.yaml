@@ -1,5 +1,5 @@
 ---
-name: sv-gen Docker build
+name: sv-channels Docker build
 on: push
 
 jobs:
