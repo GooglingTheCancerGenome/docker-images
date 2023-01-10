@@ -13,7 +13,7 @@ jobs:
       REGISTRY: ghcr.io
       GIT_COMMIT: "a0e5656"
       TAG: dev
-      NAME: sv-channels
+      NAME: sv-channels-${{ matrix.schedulers }}
       FILE_PATH: sv-channels/${{ matrix.schedulers }}
 
     steps:
