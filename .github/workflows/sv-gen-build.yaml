@@ -11,8 +11,8 @@ jobs:
         schedulers: ["gridengine", "slurm"]
     env:
       REGISTRY: ghcr.io
-      GIT_COMMIT: "d94865b"
-      TAG: dev
+      GIT_COMMIT: "950e04c"
+      TAG: "1.1.0"
       NAME: sv-gen-${{ matrix.schedulers }}
       FILE_PATH: sv-gen/${{ matrix.schedulers }}
 
